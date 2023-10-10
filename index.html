@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,60 +11,91 @@
             margin: 0;
             padding: 0;
         }
-
         header {
             background-color: #333;
             color: #fff;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
         }
-
         h1 {
-            font-size: 36px;
             margin: 0;
         }
-
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        p {
-            font-size: 18px;
-            line-height: 1.5;
+        #stone-info {
+            text-align: center;
         }
-
-        footer {
+        #stone-image {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
             background-color: #333;
             color: #fff;
-            text-align: center;
-            padding: 10px 0;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>石头收集录</h1>
-        <p>探索石头的世界，分享你的石头感知和感受。</p>
     </header>
-
     <div class="container">
-        <h2>欢迎来到石头收集录</h2>
-        <p>在这里，你可以：</p>
-        <ul>
-            <li>分享你的石头收藏</li>
-            <li>讨论石头的纹理、形状和颜色</li>
-            <li>发表关于石头的故事和观点</li>
-            <li>与其他石头爱好者互动</li>
-        </ul>
+        <div id="stone-info">
+            <h2>石头名称</h2>
+            <p>这里是有关石头的描述和感知感受。</p>
+            <img id="stone-image" src="stone.jpg" alt="石头图片">
+        </div>
+        <button id="next-stone">下一个石头</button>
     </div>
 
-    <footer>
-        &copy; 2023 石头收集录
-    </footer>
+    <script>
+        // 在这里添加JavaScript代码以实现石头切换和其他互动功能
+        // 每当用户点击“下一个石头”按钮时，您可以更新石头的信息和图像。
+        // 您可以使用JavaScript数组来存储多个石头的信息。
+        // 您还可以添加更多的交互性和功能，以满足您的需求。
+        const stoneData = [
+            {
+                name: "石头1",
+                description: "这是石头1的描述。",
+                imageUrl: "stone1.jpg"
+            },
+            {
+                name: "石头2",
+                description: "这是石头2的描述。",
+                imageUrl: "stone2.jpg"
+            },
+            // 添加更多石头的数据
+        ];
+
+        let currentIndex = 0;
+        const stoneInfo = document.getElementById("stone-info");
+        const stoneImage = document.getElementById("stone-image");
+        const nextButton = document.getElementById("next-stone");
+
+        function displayStone(index) {
+            const stone = stoneData[index];
+            stoneInfo.querySelector("h2").textContent = stone.name;
+            stoneInfo.querySelector("p").textContent = stone.description;
+            stoneImage.src = stone.imageUrl;
+        }
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % stoneData.length;
+            displayStone(currentIndex);
+        });
+
+        // 初始化显示第一个石头
+        displayStone(currentIndex);
+    </script>
 </body>
 </html>
