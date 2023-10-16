@@ -10,21 +10,29 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 5px;
+            display: flex;
+        }
+        .info {
+            padding: 20px;
+            flex: 1;
         }
         h1 {
             text-align: center;
-            font-size: 32px; /* 放大文字 */
+            font-size: 32px;
             margin: 20px;
-            border: 2px solid #000; /* 添加黑色边框 */
-            padding: 10px;
-        }
-        #stone-info {
-            text-align: center;
-            max-height: 80vh; /* 限制内容的最大高度为视口高度的80% */
-            overflow-y: auto; /* 添加垂直滚动条 */
         }
         img {
-            max-width: 100%; /* 图片适应屏幕宽度 */
+            max-width: 100%; /* 图片适应容器宽度 */
             height: auto;
             display: block;
             margin: 0 auto;
@@ -32,15 +40,16 @@
     </style>
 </head>
 <body>
-    <h1>石头收集录</h1>
-    <div id="stone-info">
-        <h2>石头名称</h2>
-        <p>这是石头的描述和感知感受。</p>
+    <div class="container">
+        <div class="info">
+            <h2>石头名称</h2>
+            <p>这是石头的描述和感知感受。</p>
+        </div>
         <img src="" alt="石头图片" id="stone-image">
     </div>
 
     <script>
-        const stoneInfo = document.getElementById("stone-info");
+        const stoneInfo = document.querySelector(".info");
         const stoneImage = document.getElementById("stone-image");
 
         // 获取URL中的石头ID
