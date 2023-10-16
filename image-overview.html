@@ -40,5 +40,14 @@
         <p>石头2介绍</p>
 </a>
     <!-- 添加更多石头的图片链接 -->
+    <button id="go-back">返回上一页</button>
+    
+<script>
+    const goBackButton = document.getElementById("go-back");
+
+    goBackButton.addEventListener("click", () => {
+        window.history.back();
+    });
+</script>
 </body>
 </html>
