@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>石头收集录</title>
     <style>
- body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
@@ -62,25 +62,45 @@
         </div>
         <button id="next-stone">下一个石头</button>
     </div>
-</head>
-<body>
-    <header>
-        <h1>欢迎来到石头收集录</h1>
-    </header>
-    <div class="container">
-        <div id="stone1-info">
-            <h2>石头1</h2>
-            <p>这是石头1的描述。</p>
-            <img id="stone1-image" src="微信图片_20231005194012.png" alt="石头1的图片">
-        </div>
-       <div id="stone2-info">
-    <h2>石头2</h2>
-    <p>这是石头2的描述。</p>
-    <img id="stone2-image" src="微信图片_20231005194021.png" alt="石头2的图片">
-    </div>
 
     <script>
-        // JavaScript代码...
+        // 在这里添加JavaScript代码以实现石头切换和其他互动功能
+        // 每当用户点击“下一个石头”按钮时，您可以更新石头的信息和图像。
+        // 您可以使用JavaScript数组来存储多个石头的信息。
+        // 您还可以添加更多的交互性和功能，以满足您的需求。
+        const stoneData = [
+            {
+                name: "石头1",
+                description: "这是石头1的描述。",
+                imageUrl: "微信图片_20231005194012.png"
+            },
+            {
+                name: "石头2",
+                description: "这是石头2的描述。",
+                imageUrl: "微信图片_20231005194021.png"
+            },
+            // 添加更多石头的数据
+        ];
+
+        let currentIndex = 0;
+        const stoneInfo = document.getElementById("stone-info");
+        const stoneImage = document.getElementById("stone-image");
+        const nextButton = document.getElementById("next-stone");
+
+        function displayStone(index) {
+            const stone = stoneData[index];
+            stoneInfo.querySelector("h2").textContent = stone.name;
+            stoneInfo.querySelector("p").textContent = stone.description;
+            stoneImage.src = stone.imageUrl;
+        }
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % stoneData.length;
+            displayStone(currentIndex);
+        });
+
+        // 初始化显示第一个石头
+        displayStone(currentIndex);
     </script>
 </body>
 </html>
