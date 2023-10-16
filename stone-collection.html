@@ -22,12 +22,16 @@
             border: 2px solid #000;
             border-radius: 5px;
             display: flex;
+            flex-direction: column;
         }
         .info {
             padding: 20px;
             flex: 1;
             border: 2px solid #000; /* 添加边框 */
             margin: 1cm; /* 1厘米的间隔 */
+            text-align: left;
+            padding-left: 1cm;
+            padding-right: 1cm;
         }
         h1 {
             text-align: center;
@@ -41,17 +45,17 @@
             display: block;
             margin: 0 auto;
             cursor: pointer;
+            transition: transform 0.3s;
         }
         #return-to-directory {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
             background-color: #000;
             color: #fff;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
+            margin: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -91,10 +95,10 @@
 
         stoneImage.addEventListener("click", () => {
             if (isImageZoomed) {
-                stoneImage.style.maxWidth = "50%";
+                stoneImage.style.transform = "scale(1)";
                 isImageZoomed = false;
             } else {
-                stoneImage.style.maxWidth = "100%";
+                stoneImage.style.transform = "scale(2)";
                 isImageZoomed = true;
             }
         });
