@@ -20,9 +20,11 @@
         }
         #stone-info {
             text-align: center;
+            max-height: 80vh; /* 限制内容的最大高度为视口高度的80% */
+            overflow-y: auto; /* 添加垂直滚动条 */
         }
         img {
-            max-width: 100%; /* 图片适应屏幕大小 */
+            max-width: 100%; /* 图片适应屏幕宽度 */
             height: auto;
             display: block;
             margin: 0 auto;
