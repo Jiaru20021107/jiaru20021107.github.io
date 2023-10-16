@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石头收集录封面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到 2023 年的 100 枚石头</h1>
+    <button id="go-to-stone-collection">进入石头收集录</button>
+
+    <script>
+        const goToStoneCollectionButton = document.getElementById("go-to-stone-collection");
+
+        goToStoneCollectionButton.addEventListener("click", () => {
+            window.location.href = "stone-collection.html"; // 跳转到石头收集录页面
+        });
+    </script>
+</body>
+</html>
