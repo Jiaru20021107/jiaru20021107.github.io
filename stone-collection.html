@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>石头介绍</title>
+    <title>石头图片总览</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,8 +16,12 @@
             font-size: 24px;
             margin: 20px;
         }
-        #stone-info {
+        a {
+            display: inline-block;
+            margin: 10px;
             text-align: center;
+            text-decoration: none;
+            color: #333;
         }
         img {
             max-width: 200px;
@@ -26,32 +30,15 @@
     </style>
 </head>
 <body>
-    <h1>石头介绍</h1>
-    <div id="stone-info">
-        <h2>石头名称</h2>
-        <p>这是石头的描述和感知感受。</p>
-        <img src="" alt="石头图片" id="stone-image">
-    </div>
-
-    <script>
-        const stoneInfo = document.getElementById("stone-info");
-        const stoneImage = document.getElementById("stone-image");
-
-        // 获取URL中的石头ID
-        const urlParams = new URLSearchParams(window.location.search);
-        const stoneId = urlParams.get("id");
-
-        // 根据石头ID加载相应的石头信息
-        if (stoneId === "stone1") {
-            stoneInfo.querySelector("h2").textContent = "石头1";
-            stoneInfo.querySelector("p").textContent = "这是石头1的描述。";
-            stoneImage.src = "1.jpg"; // 设置图片路径为石头1的图片
-        } else if (stoneId === "stone2") {
-            stoneInfo.querySelector("h2").textContent = "石头2";
-            stoneInfo.querySelector("p").textContent = "这是石头2的描述。";
-            stoneImage.src = "2.jpg"; // 设置图片路径为石头2的图片
-        }
-        // 添加更多石头的信息加载部分，以设置相应的图片路径
-    </script>
+    <h1>石头图片总览</h1>
+    <a href="stone-collection.html?id=stone1">
+        <img src="1.jpg" alt="石头1">
+        <p>石头1</p>
+    </a>
+    <a href="stone-collection.html?id=stone2">
+        <img src="2.jpg" alt="石头2">
+        <p>石头2</p>
+    </a>
+    <!-- 添加更多石头的图片链接 -->
 </body>
 </html>
