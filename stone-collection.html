@@ -40,6 +40,18 @@
             height: auto;
             display: block;
             margin: 0 auto;
+            cursor: pointer;
+        }
+        #return-to-directory {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -52,9 +64,12 @@
         <img src="" alt="石头图片" id="stone-image">
     </div>
 
+    <a href="image-overview.html" id="return-to-directory">返回到目录</a>
+
     <script>
         const stoneInfo = document.querySelector(".info");
         const stoneImage = document.getElementById("stone-image");
+        const returnToDirectory = document.getElementById("return-to-directory");
 
         // 获取URL中的石头ID
         const urlParams = new URLSearchParams(window.location.search);
@@ -71,6 +86,18 @@
             stoneImage.src = "2.jpg"; // 设置图片路径为石头2的图片
         }
         // 添加更多石头的信息加载部分，以设置相应的图片路径
+
+        let isImageZoomed = false;
+
+        stoneImage.addEventListener("click", () => {
+            if (isImageZoomed) {
+                stoneImage.style.maxWidth = "50%";
+                isImageZoomed = false;
+            } else {
+                stoneImage.style.maxWidth = "100%";
+                isImageZoomed = true;
+            }
+        });
     </script>
 </body>
 </html>
