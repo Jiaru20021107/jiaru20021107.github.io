@@ -68,19 +68,21 @@
         // 每当用户点击“下一个石头”按钮时，您可以更新石头的信息和图像。
         // 您可以使用JavaScript数组来存储多个石头的信息。
         // 您还可以添加更多的交互性和功能，以满足您的需求。
-        const stoneData = [
-            {
-                name: "石头1",
-                description: "这是石头1的描述。",
-                imageUrl: "微信图片_20231005194012.png"
-            },
-            {
-                name: "石头2",
-                description: "这是石头2的描述。",
-                imageUrl: "微信图片_20231005194021.png"
-            },
-            // 添加更多石头的数据
-        ];
+       <body>
+    <header>
+        <h1>石头收集录</h1>
+    </header>
+    <div class="container">
+        <div id="stone1">
+            <h2>石头1</h2>
+            <p>这是石头1的描述。</p>
+            <!-- 石头1的详细介绍内容 -->
+        </div>
+        <div id="stone2">
+            <h2>石头2</h2>
+            <p>这是石头2的描述。</p>
+            <!-- 石头2的详细介绍内容 -->
+        </div>
 
         let currentIndex = 0;
         const stoneInfo = document.getElementById("stone-info");
