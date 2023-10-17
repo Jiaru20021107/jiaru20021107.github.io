@@ -19,24 +19,10 @@
             width: 95%; /* 调整容器宽度 */
             max-width: 1000px; /* 设置最大宽度，以避免过大 */
             background-color: #fff; /* 设置容器背景为白色 */
-            border: 2px solid #000;
-            border-radius: 5px;
             display: flex;
         }
-        .info {
-            padding: 20px;
-            flex: 1;
-            border: 2px solid #000; /* 添加边框 */
-            margin: 1cm; /* 1厘米的间隔 */
-        }
-        h1 {
-            text-align: center;
-            font-size: 32px;
-            margin: 20px;
-        }
         img {
-            max-width: 50%; /* 图片缩小一倍 */
-            max-height: 50%;
+            width: 100%; /* 图片横铺整个容器 */
             height: auto;
             display: block;
             margin: 0 auto;
@@ -57,17 +43,12 @@
 </head>
 <body>
     <div class="container">
-        <div class="info">
-            <h2>石头名称</h2>
-            <p>这是石头的描述和感知感受。</p>
-        </div>
         <img src="" alt="石头图片" id="stone-image">
     </div>
 
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
 
     <script>
-        const stoneInfo = document.querySelector(".info");
         const stoneImage = document.getElementById("stone-image");
         const returnToDirectory = document.getElementById("return-to-directory");
 
@@ -75,20 +56,11 @@
         const urlParams = new URLSearchParams(window.location.search);
         const stoneId = urlParams.get("id");
 
-        // 根据石头ID加载相应的石头信息
+        // 根据石头ID加载相应的石头图片
         if (stoneId === "stone1") {
-            stoneInfo.querySelector("h2").textContent = "石头1";
-            stoneInfo.querySelector("p").textContent = "这是石头1的描述。";
             stoneImage.src = "1.jpg"; // 设置图片路径为石头1的图片
         } else if (stoneId === "stone2") {
-            stoneInfo.querySelector("h2").textContent = "石头2";
-            stoneInfo.querySelector("p").textContent = "这是石头2的描述。";
             stoneImage.src = "2.jpg"; // 设置图片路径为石头2的图片
-        }
-        else if (stoneId === "stone3") {
-            stoneInfo.querySelector("h2").textContent = "石头3";
-            stoneInfo.querySelector("p").textContent = "这是石头3的描述。";
-            stoneImage.src = "3.jpg"; // 设置图片路径为石头3的图片
         }
         // 添加更多石头的信息加载部分，以设置相应的图片路径
 
