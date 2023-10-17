@@ -55,10 +55,12 @@
 <body>
     <div class="image-container">
         <img src="" alt="石头图片" id="stone-image">
+
         <div id="magnifier">
             <img src="" alt="放大镜图片" id="magnifier-image">
         </div>
     </div>
+
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
 
     <script>
@@ -71,24 +73,13 @@
         const urlParams = new URLSearchParams(window.location.search);
         const stoneId = urlParams.get("id");
 
-        // 定义放大镜图片的路径
-        const magnifierImages = {
-            stone1: "1.jpg",
-            stone2: "2.jpg",
-            // 添加更多石头的放大镜图片路径
-        };
-
-       // 根据石头ID加载相应的石头图片
+        // 根据石头ID加载相应的石头图片
         if (stoneId === "stone1") {
             stoneImage.src = "1.jpg"; // 设置图片路径为石头1的图片
         } else if (stoneId === "stone2") {
             stoneImage.src = "2.jpg"; // 设置图片路径为石头2的图片
         }
-        // 根据石头ID加载相应的石头图片和放大镜图片
-        if (stoneId in magnifierImages) {
-            stoneImage.src = `${stoneId}.jpg`; // 设置图片路径为对应的石头图片
-            magnifierImage.src = magnifierImages[stoneId]; // 设置放大镜图片路径
-        }
+        // 添加更多石头的信息加载部分，以设置相应的图片路径
 
         let isImageZoomed = false;
 
