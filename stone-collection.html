@@ -78,6 +78,12 @@
             // 添加更多石头的放大镜图片路径
         };
 
+       // 根据石头ID加载相应的石头图片
+        if (stoneId === "stone1") {
+            stoneImage.src = "1.jpg"; // 设置图片路径为石头1的图片
+        } else if (stoneId === "stone2") {
+            stoneImage.src = "2.jpg"; // 设置图片路径为石头2的图片
+        }
         // 根据石头ID加载相应的石头图片和放大镜图片
         if (stoneId in magnifierImages) {
             stoneImage.src = `${stoneId}.jpg`; // 设置图片路径为对应的石头图片
