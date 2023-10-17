@@ -15,15 +15,9 @@
             justify-content: center;
             min-height: 100vh;
         }
-        .container {
-            width: 95%; /* 调整容器宽度 */
-            max-width: 1000px; /* 设置最大宽度，以避免过大 */
-            background-color: #fff; /* 设置容器背景为白色 */
-            display: flex;
-        }
         img {
-            max-width: 100%; /* 图片最大宽度为容器宽度的百分之百 */
-            height: auto;
+            width: auto;
+            height: 100vh; /* 设置图片高度占满整个页面高度 */
             display: block;
             margin: 0 auto;
             cursor: pointer;
@@ -36,15 +30,14 @@
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
-            margin: 10px;
-            text-align: center;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="" alt="石头图片" id="stone-image">
-    </div>
+    <img src="" alt="石头图片" id="stone-image">
 
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
 
