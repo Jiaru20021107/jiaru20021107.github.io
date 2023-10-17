@@ -75,9 +75,9 @@
 
         // 根据石头ID加载相应的石头图片
         if (stoneId === "stone1") {
-            stoneImage.src = "1.jpg"; // 设置图片路径为石头1的图片
+            stoneImage.src = "stone1.jpg"; // 设置图片路径为石头1的图片
         } else if (stoneId === "stone2") {
-            stoneImage.src = "2.jpg"; // 设置图片路径为石头2的图片
+            stoneImage.src = "stone2.jpg"; // 设置图片路径为石头2的图片
         }
         // 添加更多石头的信息加载部分，以设置相应的图片路径
 
@@ -103,8 +103,11 @@
                 const percentX = (x / rect.width) * 100;
                 const percentY = (y / rect.height) * 100;
 
-                magnifierImage.style.left = -percentX + "%";
-                magnifierImage.style.top = -percentY + "%";
+                magnifier.style.left = `${x - magnifier.clientWidth / 2}px`; // 放大镜位置随鼠标移动
+                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
+
+                magnifierImage.style.left = `-${percentX}%`;
+                magnifierImage.style.top = `-${percentY}%`;
             }
         });
 
