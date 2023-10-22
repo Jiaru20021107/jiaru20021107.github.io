@@ -56,10 +56,29 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="stone-collection.html" alt="石头图片" id="stone-image">
+        <!-- 这个元素将显示详细信息页面的图片 -->
+        <img src="" alt="石头图片" id="stone-image">
+
         <div id="magnifier">
+            <!-- 放大镜内容 -->
             <img src="magnifier.jpg" alt="放大镜图片" id="magnifier-image">
         </div>
+    </div>
+
+    <a href="image-overview.html" id="return-to-directory">返回到目录</a>
+
+    <script>
+        // 从URL中提取参数（石头ID）
+        const urlParams = new URLSearchParams(window.location.search);
+        const stoneId = urlParams.get("id");
+
+        // 根据石头ID显示相应的图片
+        if (stoneId === "stone1") {
+            showStoneImage("1.jpg"); // 调用自定义函数显示石头1的图片
+        } else if (stoneId === "stone2") {
+            showStoneImage("2.jpg"); // 调用自定义函数显示石头2的图片
+        }
+
     </div>
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
     <script>
