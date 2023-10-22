@@ -64,15 +64,18 @@
         const stoneImages = document.querySelectorAll(".stone-image");
         const magnifiers = document.querySelectorAll(".magnifier");
 
+        function hideImages() {
+            stoneImages.forEach((img) => {
+                img.style.display = "none";
+            });
+            magnifiers.forEach((magnifier) => {
+                magnifier.style.display = "none";
+            });
+        }
+
         stoneImages.forEach((stoneImage, index) => {
             stoneImage.addEventListener("click", () => {
-                stoneImages.forEach((img) => {
-                    img.style.display = "none";
-                });
-                magnifiers.forEach((magnifier) => {
-                    magnifier.style.display = "none";
-                });
-
+                hideImages();
                 stoneImage.style.display = "block";
                 magnifiers[index].style.display = "block";
             });
@@ -93,12 +96,7 @@
         const returnToDirectory = document.getElementById("return-to-directory");
 
         returnToDirectory.addEventListener("click", () => {
-            stoneImages.forEach((img) => {
-                img.style.display = "none";
-            });
-            magnifiers.forEach((magnifier) => {
-                magnifier.style.display = "none";
-            });
+            hideImages();
         });
     </script>
 </body>
