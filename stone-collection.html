@@ -78,14 +78,12 @@
         const magnifierImage = document.getElementById("magnifier-image");
 
         let isImageZoomed = false;
-
-        // 定义一个函数来显示指定的石头图片
-        function showStoneImage(imagePath) {
-            stoneImage.src = imagePath;
-            // 使用对应的放大镜图片
-            magnifierImage.src = imagePath.replace(".png", "-magnifier.png");
-        }
-
+// 定义一个函数来显示指定的石头图片
+function showStoneImage(imagePath) {
+    stoneImage.src = imagePath;
+    // 使用对应的放大镜图片
+    magnifierImage.src = imagePath.replace(".png", "-magnifier.png");
+}
         // 当图片被点击时，启用或禁用放大功能
         stoneImage.addEventListener("click", () => {
             if (isImageZoomed) {
@@ -127,9 +125,9 @@
 
         // 根据参数显示相应的图片
         if (stoneId === "stone1") {
-            showStoneImage("1.png");
-        } else if (stoneId === "stone2") {
-            showStoneImage("2.png");
+    showStoneImage("1.png");
+} else if (stoneId === "stone2") {
+    showStoneImage("2.png");
          } else if (stoneId === "stone3") {
             showStoneImage("3.png");
              } else if (stoneId === "stone4") {
