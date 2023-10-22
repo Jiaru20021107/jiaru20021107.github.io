@@ -57,27 +57,12 @@
         <img src="" alt="石头图片" id="stone-image">
 
         <div id="magnifier">
-            <img src="" alt="放大镜图片" id="magnifier-image">
+            <img src="" alt="石头图片" id="magnifier-image">
         </div>
     </div>
 
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
-
     <!-- 添加更多导览图片 -->
-     <a href="image-overview.html?id=stone1" class="guide-image" data-stone-image="stone1.png"></a>
- <a href="image-overview.html?id=stone2" class="guide-image" data-stone-image="stone2.png"></a>
-    <a href="image-overview.html?id=stone3" class="guide-image" data-stone-image="stone3.png"></a>
-    <a href="image-overview.html?id=stone4" class="guide-image" data-stone-image="stone4.png"></a>
-    <a href="image-overview.html?id=stone5" class="guide-image" data-stone-image="stone5.png"></a>
-    <a href="image-overview.html?id=stone6" class="guide-image" data-stone-image="stone6.png"></a>
-    <a href="image-overview.html?id=stone7" class="guide-image" data-stone-image="stone7.png"></a>
-    <a href="image-overview.html?id=stone8" class="guide-image" data-stone-image="stone8.png"></a>
-    <a href="image-overview.html?id=stone9" class "guide-image" data-stone-image="stone9.png"></a>
-    <a href="image-overview.html?id=stone10" class="guide-image" data-stone-image="stone10.png"></a>
-    <a href="image-overview.html?id=stone11" class="guide-image" data-stone-image="stone11.png"></a>
-    <a href="image-overview.html?id=stone12" class="guide-image" data-stone-image="stone12.png"></a>
-    <a href="image-overview.html?id=stone13" class="guide-image" data-stone-image="stone13.png"></a>
-    <a href="image-overview.html?id=stone14" class="guide-image" data-stone-image="stone14.png"></a>
 
     <script>
         const stoneImage = document.getElementById("stone-image");
@@ -87,20 +72,58 @@
 
         let isImageZoomed = false;
 
-        // 定义一个函数来显示指定的石头图片
-        function showStoneImage(imagePath) {
-            stoneImage.src = imagePath;
-        }
+        // 获取URL中的参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const stoneId = urlParams.get("id");
 
-        // 当导览图片被点击时，调用showStoneImage函数来显示相应的石头图片
-        document.addEventListener("DOMContentLoaded", () => {
-            const guideImages = document.querySelectorAll(".guide-image");
-            guideImages.forEach((image) => {
-                image.addEventListener("click", () => {
-                    showStoneImage(image.getAttribute("data-stone-image"));
-                });
-            });
-        });
+        // 根据不同的石头ID，设置对应的石头图片
+        switch (stoneId) {
+            case "stone1":
+                stoneImage.src = "stone1.png";
+                break;
+            case "stone2":
+                stoneImage.src = "stone2.png";
+                break;
+            case "stone3":
+                stoneImage.src = "stone3.png";
+                break;
+                 case "stone4":
+                stoneImage.src = "stone4.png";
+                break;
+                 case "stone5":
+                stoneImage.src = "stone5.png";
+                break;
+                 case "stone6":
+                stoneImage.src = "stone6.png";
+                break;
+                 case "stone7":
+                stoneImage.src = "stone7.png";
+                break;
+                 case "stone8":
+                stoneImage.src = "stone8.png";
+                break;
+                 case "stone9":
+                stoneImage.src = "stone9.png";
+                break;
+                 case "stone10":
+                stoneImage.src = "stone10.png";
+                break; 
+            case "stone11":
+                stoneImage.src = "stone11.png";
+                break;
+                 case "stone12":
+                stoneImage.src = "stone12.png";
+                break;
+                 case "stone13":
+                stoneImage.src = "stone13.png";
+                break;
+                 case "stone14":
+                stoneImage.src = "stone14.png";
+                break;
+            // 添加更多石头的情况
+            default:
+                stoneImage.src = "default.png"; // 当stoneId不匹配时显示默认图片
+        }
 
         stoneImage.addEventListener("click", () => {
             if (isImageZoomed) {
@@ -123,4 +146,20 @@
                 const percentY = (y / rect.height) * 100;
 
                 magnifier.style.left = `${x - magnifier.clientWidth / 2}px`;
-               
+                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
+
+                magnifierImage.style.left = `-${percentX}%`;
+                magnifierImage.style.top = `-${percentY}%`;
+            }
+        });
+
+        returnToDirectory.addEventListener("click", () => {
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
+                isImageZoomed = false;
+                magnifier.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
