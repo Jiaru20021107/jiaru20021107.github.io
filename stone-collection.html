@@ -26,7 +26,18 @@
             cursor: pointer;
             transition: transform 0.3s;
         }
-        .magnifier {
+        #return-to-directory {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+        #magnifier {
             position: absolute;
             display: none;
             width: 200px; /* 放大镜宽度 */
@@ -35,7 +46,7 @@
             background: rgba(0, 0, 0, 0.7);
             cursor: zoom-in;
         }
-        .magnifier img {
+        #magnifier img {
             width: 100%;
             height: 100%;
         }
@@ -43,62 +54,58 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="1.jpg" alt="石头1" id="stone-image-1" class="stone-image">
-        <div class="magnifier" id="magnifier-1">
-            <img src="1.jpg" alt="放大镜图片">
-        </div>
+        <img src="" alt="石头图片" id="stone-image">
     </div>
-
-    <div class="image-container">
-        <img src="2.jpg" alt="石头2" id="stone-image-2" class="stone-image">
-        <div class="magnifier" id="magnifier-2">
-            <img src="2.jpg" alt="放大镜图片">
-        </div>
-    </div>
-
-    <!-- 添加更多石头的信息加载部分，以设置相应的图片路径 -->
 
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
 
     <script>
-        const stoneImages = document.querySelectorAll(".stone-image");
-        const magnifiers = document.querySelectorAll(".magnifier");
-
-        function hideImages() {
-            stoneImages.forEach((img) => {
-                img.style.display = "none";
-            });
-            magnifiers.forEach((magnifier) => {
-                magnifier.style.display = "none";
-            });
-        }
-
-        hideImages();
-
-        stoneImages.forEach((stoneImage, index) => {
-            stoneImage.addEventListener("click", () => {
-                hideImages();
-                stoneImage.style.display = "block";
-                magnifiers[index].style.display = "block";
-            });
-
-            // 放大后，放大镜随鼠标移动
-            stoneImage.addEventListener("mousemove", (e) => {
-                if (magnifiers[index].style.display === "block") {
-                    const rect = stoneImage.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    magnifiers[index].style.left = `${x - magnifiers[index].clientWidth / 2}px`;
-                    magnifiers[index].style.top = `${y - magnifiers[index].clientHeight / 2}px`;
-                }
-            });
-        });
-
+        const stoneImage = document.getElementById("stone-image");
         const returnToDirectory = document.getElementById("return-to-directory");
 
+        // 获取URL中的石头图片路径
+        const urlParams = new URLSearchParams(window.location.search);
+        const imageUrl = urlParams.get("image");
+
+        // 设置图片路径
+        stoneImage.src = imageUrl;
+
+        let isImageZoomed = false;
+
+        stoneImage.addEventListener("click", () => {
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
+                isImageZoomed = false;
+                magnifier.style.display = "none";
+            } else {
+                stoneImage.style.transform = "scale(2)";
+                isImageZoomed = true;
+                magnifier.style.display = "block";
+            }
+        });
+
+        stoneImage.addEventListener("mousemove", (e) => {
+            if (isImageZoomed) {
+                const rect = stoneImage.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const percentX = (x / rect.width) * 100;
+                const percentY = (y / rect.height) * 100;
+
+                magnifier.style.left = `${x - magnifier.clientWidth / 2}px`; // 放大镜位置随鼠标移动
+                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
+
+                magnifierImage.style.left = `-${percentX}%`;
+                magnifierImage.style.top = `-${percentY}%`;
+            }
+        });
+
         returnToDirectory.addEventListener("click", () => {
-            hideImages();
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
+                isImageZoomed = false;
+                magnifier.style.display = "none";
+            }
         });
     </script>
 </body>
