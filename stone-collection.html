@@ -1,5 +1,3 @@
-<!-- stone-collection.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,35 +54,41 @@
 </head>
 <body>
     <div class="image-container">
-        <!-- 这个元素将显示详细信息页面的图片 -->
         <img src="" alt="石头图片" id="stone-image">
 
-        <!-- 放大镜内容 -->
         <div id="magnifier">
-            <img src="" alt="放大镜图片" id="magnifier-image">
+            <img src="" alt="石头图片" id="magnifier-image">
         </div>
     </div>
 
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
+    <!-- 添加更多导览图片 -->
 
     <script>
-        // 从URL中提取参数（石头ID）
-        const urlParams = new URLSearchParams(window.location.search);
-        const stoneId = urlParams.get("id");
-
         const stoneImage = document.getElementById("stone-image");
         const returnToDirectory = document.getElementById("return-to-directory");
         const magnifier = document.getElementById("magnifier");
         const magnifierImage = document.getElementById("magnifier-image");
 
         let isImageZoomed = false;
-// 定义一个函数来显示指定的石头图片
-function showStoneImage(imagePath) {
-    stoneImage.src = imagePath;
-    // 使用对应的放大镜图片
-    magnifierImage.src = imagePath.replace(".png", "-magnifier.png");
-}
-        // 当图片被点击时，启用或禁用放大功能
+
+        // 获取URL中的参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const stoneId = urlParams.get("id");
+
+        // 根据不同的石头ID，设置对应的石头图片
+        switch (stoneId) {
+            case "stone1":
+                stoneImage.src = "1.png";
+                break;
+            case "stone2":
+                stoneImage.src = "2.png";
+                break;
+            // 添加更多石头的情况
+            default:
+                stoneImage.src = "default.png"; // 当stoneId不匹配时显示默认图片
+        }
+
         stoneImage.addEventListener("click", () => {
             if (isImageZoomed) {
                 stoneImage.style.transform = "scale(1)";
@@ -97,7 +101,6 @@ function showStoneImage(imagePath) {
             }
         });
 
-        // 当鼠标在图片上移动时，移动放大镜内容
         stoneImage.addEventListener("mousemove", (e) => {
             if (isImageZoomed) {
                 const rect = stoneImage.getBoundingClientRect();
@@ -114,7 +117,6 @@ function showStoneImage(imagePath) {
             }
         });
 
-        // 返回到目录页面
         returnToDirectory.addEventListener("click", () => {
             if (isImageZoomed) {
                 stoneImage.style.transform = "scale(1)";
@@ -122,30 +124,6 @@ function showStoneImage(imagePath) {
                 magnifier.style.display = "none";
             }
         });
-
-        // 根据参数显示相应的图片
-        if (stoneId === "stone1") {
-    showStoneImage("1.jpg");
-} else if (stoneId === "stone2") {
-    showStoneImage("2.png");
-         } else if (stoneId === "stone3") {
-            showStoneImage("3.png");
-             } else if (stoneId === "stone4") {
-            showStoneImage("4.png");
-             } else if (stoneId === "stone5") {
-            showStoneImage("5.png");
-             } else if (stoneId === "stone6") {
-            showStoneImage("6.png");
-             } else if (stoneId === "stone7") {
-            showStoneImage("7.png");
-             } else if (stoneId === "stone8") {
-            showStoneImage("8.png");
-             } else if (stoneId === "stone9") {
-            showStoneImage("9.png");
-             } else if (stoneId === "stone10") {
-            showStoneImage("10.png");
-             } else if (stoneId === "stone11") {
-            showStoneImage("11.png");
     </script>
-    </body>
+</body>
 </html>
