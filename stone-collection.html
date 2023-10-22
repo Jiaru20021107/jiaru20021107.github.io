@@ -59,9 +59,9 @@
         <!-- 这个元素将显示详细信息页面的图片 -->
         <img src="" alt="石头图片" id="stone-image">
 
+        <!-- 放大镜内容 -->
         <div id="magnifier">
-            <!-- 放大镜内容 -->
-            <img src="magnifier.jpg" alt="放大镜图片" id="magnifier-image">
+            <img src="" alt="放大镜图片" id="magnifier-image">
         </div>
     </div>
 
@@ -82,6 +82,8 @@
         // 定义一个函数来显示指定的石头图片
         function showStoneImage(imagePath) {
             stoneImage.src = imagePath;
+            // 使用对应的放大镜图片
+            magnifierImage.src = imagePath.replace(".jpg", "-magnifier.jpg");
         }
 
         // 当图片被点击时，启用或禁用放大功能
@@ -130,8 +132,5 @@
             showStoneImage("2.jpg");
         }
     </script>
-</body>
+    </body>
 </html>
-</body>
-</html>
-
