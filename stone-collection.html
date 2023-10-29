@@ -240,38 +240,16 @@
         }
 
 
-   let clickCount = 0; // 初始化点击次数
-const zoomLevels = [1, 2, 3, 4, 5]; // 不同放大倍数
-let currentZoomLevelIndex = 0; // 当前放大倍数索引
-
-stoneImage.addEventListener("click", (e) => {
-    if (e.button === 0) {
-        // 左键点击
-        clickCount++; // 每次点击增加点击次数
-        if (!isImageZoomed) {
-            // 第一次点击，使用默认放大倍数（1）
-            isImageZoomed = true;
-            magnifier.style.display = "block";
-        } else {
-            // 计算下一个放大倍数
-            const nextZoomLevelIndex = clickCount % zoomLevels.length;
-            currentZoomLevelIndex = nextZoomLevelIndex;
-            const zoomFactor = zoomLevels[nextZoomLevelIndex];
-            stoneImage.style.transform = `scale(${zoomFactor})`;
-        }
-
-        // 重置点击次数
-        if (clickCount >= 5) {
-            clickCount = 0;
-        }
-    } else if (e.button === 2) {
-        // 右键点击
-        if (isImageZoomed) {
-            // 缩小回原始大小
-            stoneImage.style.transform = "scale(1)";
-            isImageZoomed = false;
-            magnifier.style.display = "none";
-        }
+   stoneImage.addEventListener("click", () => {
+    if (!isImageZoomed) {
+        stoneImage.style.transform = "scale(2)";
+        isImageZoomed = true;
+        magnifier.style.display = "block";
+    } else {
+        const currentTransform = stoneImage.style.transform;
+        const currentScale = parseFloat(currentTransform.match(/[\d\.]+/)[0]);
+        const newScale = currentScale * 1.5; // 放大1.5倍
+        stoneImage.style.transform = `scale(${newScale})`;
     }
 });
         stoneImage.addEventListener("mousemove", (e) => {
