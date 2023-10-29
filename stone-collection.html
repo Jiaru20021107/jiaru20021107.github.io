@@ -267,7 +267,21 @@
                 magnifierImage.style.top = `-${percentY}%`;
             }
         });
-
+         returnToDirectory.addEventListener("click", () => {
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
+                isImageZoomed = false;
+                magnifier.style.display = "none";
+            }
+        });
+        
+stoneImage.addEventListener("click", () => {
+    if (!isImageZoomed) {
+        stoneImage.style.transform = "scale(2)";
+        isImageZoomed = true;
+        magnifier.style.display = "block";
+    }
+});
        
     </script>
 </body>
