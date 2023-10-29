@@ -238,8 +238,10 @@
     
              default:
                 stoneImage.src = "stone.png"; // 当stoneId不匹配时显示默认图片
-        }
-     stoneImage.addEventListener("click", () => {
+    
+     let isImageZoomed = false;
+
+        stoneImage.addEventListener("click", () => {
             if (!isImageZoomed) {
                 // 单击放大
                 stoneImage.style.transform = "scale(2)";
