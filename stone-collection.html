@@ -56,12 +56,9 @@
 <body>
     <div class="image-container">
         <img src="" alt="石头图片" id="stone-image">
-
-      
     </div>
+    <a href="index.html" id="return-to-directory">返回到总览</a>
 
-    <a href="image-overview.html" id="return-to-directory">返回到目录</a>
-    <!-- 添加更多导览图片 -->
 
  <script>
         const stoneImage = document.getElementById("stone-image");
@@ -235,54 +232,24 @@
         stoneImage.src = "stone49.png";
         break;
             // 添加更多石头的情况
-    
-             default:
-                stoneImage.src = "stone.png"; // 当stoneId不匹配时显示默认图片
+     stoneImage.addEventListener("click", () => {
+            isImageZoomed = !isImageZoomed;
+            updateImageZoom();
+        });
+
+        // 更新图片放大状态
+        function updateImageZoom() {
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(2)";
+            } else {
+                stoneImage.style.transform = "scale(1)";
+            }
         }
 
-      stoneImage.addEventListener("click", () => {
-    if (!isImageZoomed) {
-        stoneImage.style.transform = "scale(2)";
-        isImageZoomed = true;
-        magnifier.style.display = "block";
-    }
-});
-        stoneImage.addEventListener("click", () => {
-    if (isImageZoomed) {
-        stoneImage.style.transform = "scale(2)";
-        magnifier.style.display = "block";
-    } else {
-        stoneImage.style.transform = "scale(1)";
-        magnifier.style.display = "none";
-    }
-    isImageZoomed = !isImageZoomed;
-});
-
-        stoneImage.addEventListener("mousemove", (e) => {
-            if (isImageZoomed) {
-                const rect = stoneImage.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const percentX = (x / rect.width) * 100;
-                const percentY = (y / rect.height) * 100;
-
-                magnifier.style.left = `${x - magnifier.clientWidth / 2}px`;
-                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
-
-                magnifierImage.style.left = `-${percentX}%`;
-                magnifierImage.style.top = `-${percentY}%`;
-            }
+        returnToDirectory.addEventListener("click", () => {
+            isImageZoomed = false;
+            updateImageZoom();
         });
-         returnToDirectory.addEventListener("click", () => {
-            if (isImageZoomed) {
-                stoneImage.style.transform = "scale(1)";
-                isImageZoomed = false;
-                magnifier.style.display = "none";
-            }
-        });
-        
-
-       
     </script>
 </body>
 </html>
