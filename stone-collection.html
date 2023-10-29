@@ -63,7 +63,7 @@
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
     <!-- 添加更多导览图片 -->
 
-<script>
+ <script>
         const stoneImage = document.getElementById("stone-image");
         const returnToDirectory = document.getElementById("return-to-directory");
         const magnifier = document.getElementById("magnifier");
@@ -71,15 +71,192 @@
 
         let isImageZoomed = false;
 
+        // 获取URL中的参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const stoneId = urlParams.get("id");
+
+        // 根据不同的石头ID，设置对应的石头图片
+        switch (stoneId) {
+            case "stone1":
+                stoneImage.src = "stone1.png";
+               
+                break;
+            case "stone2":
+                stoneImage.src = "stone2.png";
+               
+                break;
+            case "stone3":
+                stoneImage.src = "stone3.png";
+              
+                break;
+                 case "stone4":
+                stoneImage.src = "stone4.png";
+               
+                break;
+                 case "stone5":
+                stoneImage.src = "stone5.png";
+               
+                break;
+                 case "stone6":
+                stoneImage.src = "stone6.png";
+                
+                break;
+                 case "stone7":
+                stoneImage.src = "stone7.png";
+               
+                break;
+                 case "stone8":
+                stoneImage.src = "stone8.png";
+               
+                break;
+                 case "stone9":
+                stoneImage.src = "stone9.png";
+               
+                break;
+                 case "stone10":
+                stoneImage.src = "stone10.png";
+               
+                break; 
+            case "stone11":
+                stoneImage.src = "stone11.png";
+                break;
+                 case "stone12":
+                stoneImage.src = "stone12.png";
+                break;
+                 case "stone13":
+                stoneImage.src = "stone13.png";
+                break;
+                 case "stone14":
+                stoneImage.src = "stone14.png";
+                break;
+                 case "stone15":
+        stoneImage.src = "stone15.png";
+        break;
+    case "stone16":
+        stoneImage.src = "stone16.png";
+        break;
+    case"stone17":
+        stoneImage.src = "stone17.png";
+        break;
+    case "stone18":
+        stoneImage.src = "stone18.png";
+        break;
+    case "stone19":
+        stoneImage.src = "stone19.png";
+        break;
+    case "stone20":
+        stoneImage.src = "stone20.png";
+        break;
+    case"stone21":
+        stoneImage.src = "stone21.png";
+        break;
+    case "stone22":
+        stoneImage.src = "stone22.png";
+        break;
+    case "stone23":
+        stoneImage.src = "stone23.png";
+        break;
+    case "stone24":
+        stoneImage.src = "stone24.png";
+        break;
+    case "stone25":
+        stoneImage.src = "stone25.png";
+        break;
+    case "stone26":
+        stoneImage.src = "stone26.png";
+        break;
+    case "stone27":
+        stoneImage.src = "stone27.png";
+        break;
+    case "stone28":
+        stoneImage.src = "stone28.png";
+        break;
+    case "stone29":
+        stoneImage.src = "stone29.png";
+        break;
+    case "stone30":
+        stoneImage.src = "stone30.png";
+        break;
+    case"stone31":
+        stoneImage.src = "stone31.png";
+        break;
+    case "stone32":
+        stoneImage.src = "stone32.png";
+        break;
+    case "stone33":
+        stoneImage.src = "stone33.png";
+        break;
+    case "stone34":
+        stoneImage.src = "stone34.png";
+        break;
+    case "stone35":
+        stoneImage.src = "stone35.png";
+        break;
+    case "stone36":
+        stoneImage.src = "stone36.png";
+        break;
+    case"stone37":
+        stoneImage.src = "stone37.png";
+        break;
+    case "stone38":
+        stoneImage.src = "stone38.png";
+        break;
+    case "stone39":
+        stoneImage.src = "stone39.png";
+        break;
+    case "stone40":
+        stoneImage.src = "stone40.png";
+        break;
+    case "stone41":
+        stoneImage.src = "stone41.png";
+        break;
+    case "stone42":
+        stoneImage.src = "stone42.png";
+        break;
+    case "stone43":
+        stoneImage.src = "stone43.png";
+        break;
+    case "stone44":
+        stoneImage.src = "stone44.png";
+        break;
+    case "stone45":
+        stoneImage.src = "stone45.png";
+        break;
+    case "stone46":
+        stoneImage.src = "stone46.png";
+        break;
+    case "stone47":
+        stoneImage.src = "stone47.png";
+        break;
+    case "stone48":
+        stoneImage.src = "stone48.png";
+        break;
+    case "stone49":
+        stoneImage.src = "stone49.png";
+        break;
+            // 添加更多石头的情况
+    
+             default:
+                stoneImage.src = "stone.png"; // 当stoneId不匹配时显示默认图片
+        }
+
+      stoneImage.addEventListener("click", () => {
+    if (!isImageZoomed) {
+        stoneImage.style.transform = "scale(2)";
+        isImageZoomed = true;
+        magnifier.style.display = "block";
+    }
+});
         stoneImage.addEventListener("click", () => {
-            if (isImageZoomed) {
-                stoneImage.style.transform = `scale(${parseFloat(stoneImage.style.transform.split('(')[1]) + 0.2})`;
-            } else {
-                stoneImage.style.transform = "scale(2)";
-                magnifier.style.display = "block";
-            }
-            isImageZoomed = !isImageZoomed;
-        });
+    if (isImageZoomed) {
+        stoneImage.style.transform = "scale(2)";
+        magnifier.style.display = "block";
+    } else {
+        stoneImage.style.transform = "scale(1)";
+        magnifier.style.display = "none";
+    }
+    isImageZoomed = !isImageZoomed;
+});
 
         stoneImage.addEventListener("mousemove", (e) => {
             if (isImageZoomed) {
@@ -96,12 +273,16 @@
                 magnifierImage.style.top = `-${percentY}%`;
             }
         });
-
-        returnToDirectory.addEventListener("click", () => {
-            isImageZoomed = false;
-            stoneImage.style.transform = "scale(1)";
-            magnifier.style.display = "none";
+         returnToDirectory.addEventListener("click", () => {
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
+                isImageZoomed = false;
+                magnifier.style.display = "none";
+            }
         });
+        
+
+       
     </script>
 </body>
 </html>
