@@ -255,7 +255,22 @@ stoneImage.addEventListener("click", () => {
         magnifier.style.display = "none";
     }
 });
+        
+ stoneImage.addEventListener("mousemove", (e) => {
+            if (isImageZoomed) {
+                const rect = stoneImage.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const percentX = (x / rect.width) * 100;
+                const percentY = (y / rect.height) * 100;
 
+                magnifier.style.left = `${x - magnifier.clientWidth / 2}px`;
+                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
+
+                magnifierImage.style.left = `-${percentX}%`;
+                magnifierImage.style.top = `-${percentY}%`;
+            }
+        });
 
        
 
