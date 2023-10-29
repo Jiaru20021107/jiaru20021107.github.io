@@ -239,62 +239,40 @@
                 stoneImage.src = "default.png"; // 当stoneId不匹配时显示默认图片
         }
 
-<script>
-       <script>
-        function zoomImage(imagePath) {
-            const image = document.createElement("img");
-            image.src = imagePath;
-            image.style.maxWidth = "100%";
-            image.style.height = "auto";
-            image.style.display = "block";
-            image.style.margin = "0 auto";
-            image.style.cursor = "zoom-out";
-
-            const overlay = document.createElement("div");
-            overlay.style.position = "fixed";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
-            overlay.style.display = "flex";
-            overlay.style.justifyContent = "center";
-            overlay.style.alignItems = "center";
-
-            overlay.appendChild(image);
-            overlay.onclick = function () {
-                overlay.remove();
-            };
-
-            document.body.appendChild(overlay);
-        }
-    </script>
-
-        let isImageZoomed = false;
-        let scaleFactor = 1; // 初始化放大系数为1
-
         stoneImage.addEventListener("click", () => {
-            scaleFactor *= 2; // 每次点击左键放大2倍
-            stoneImage.style.transform = `scale(${scaleFactor})`;
-            isImageZoomed = true;
-            magnifier.style.display = "block";
-        });
-
-        stoneImage.addEventListener("contextmenu", (e) => {
-            e.preventDefault(); // 阻止右键菜单
-            scaleFactor /= 2; // 每次右键点击缩小2倍
-            stoneImage.style.transform = `scale(${scaleFactor})`;
-            if (scaleFactor === 1) {
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
                 isImageZoomed = false;
                 magnifier.style.display = "none";
+            } else {
+                stoneImage.style.transform = "scale(2)";
+                isImageZoomed = true;
+                magnifier.style.display = "block";
+            }
+        });
+
+        stoneImage.addEventListener("mousemove", (e) => {
+            if (isImageZoomed) {
+                const rect = stoneImage.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const percentX = (x / rect.width) * 100;
+                const percentY = (y / rect.height) * 100;
+
+                magnifier.style.left = `${x - magnifier.clientWidth / 2}px`;
+                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
+
+                magnifierImage.style.left = `-${percentX}%`;
+                magnifierImage.style.top = `-${percentY}%`;
             }
         });
 
         returnToDirectory.addEventListener("click", () => {
-            scaleFactor = 1; // 重置放大系数为1
-            stoneImage.style.transform = "scale(1)";
-            isImageZoomed = false;
-            magnifier.style.display = "none";
+            if (isImageZoomed) {
+                stoneImage.style.transform = "scale(1)";
+                isImageZoomed = false;
+                magnifier.style.display = "none";
+            }
         });
     </script>
 </body>
