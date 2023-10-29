@@ -282,6 +282,16 @@ stoneImage.addEventListener("click", () => {
         magnifier.style.display = "block";
     }
 });
+        stoneImage.addEventListener("click", () => {
+    if (isImageZoomed) {
+        stoneImage.style.transform = "scale(2)";
+        magnifier.style.display = "block";
+    } else {
+        stoneImage.style.transform = "scale(1)";
+        magnifier.style.display = "none";
+    }
+    isImageZoomed = !isImageZoomed;
+});
        
     </script>
 </body>
