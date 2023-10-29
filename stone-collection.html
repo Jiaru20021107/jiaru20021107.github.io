@@ -247,39 +247,17 @@ stoneImage.addEventListener("click", () => {
         scaleFactor = 1;
         isImageZoomed = false;
         stoneImage.style.transform = "scale(1)";
+        magnifier.style.display = "block";
     } else {
         scaleFactor += 0.2; // 调整放大倍数
         isImageZoomed = true;
         stoneImage.style.transform = `scale(${scaleFactor})`;
+        magnifier.style.display = "none";
     }
 });
-        stoneImage.addEventListener("click", () => {
-            if (isImageZoomed) {
-                stoneImage.style.transform = "scale(1)";
-                isImageZoomed = false;
-                magnifier.style.display = "none";
-            } else {
-                stoneImage.style.transform = "scale(2)";
-                isImageZoomed = true;
-                magnifier.style.display = "block";
-            }
-        });
 
-        stoneImage.addEventListener("mousemove", (e) => {
-            if (isImageZoomed) {
-                const rect = stoneImage.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const percentX = (x / rect.width) * 100;
-                const percentY = (y / rect.height) * 100;
 
-                magnifier.style.left = `${x - magnifier.clientWidth / 2}px`;
-                magnifier.style.top = `${y - magnifier.clientHeight / 2}px`;
-
-                magnifierImage.style.left = `-${percentX}%`;
-                magnifierImage.style.top = `-${percentY}%`;
-            }
-        });
+       
 
         returnToDirectory.addEventListener("click", () => {
             if (isImageZoomed) {
