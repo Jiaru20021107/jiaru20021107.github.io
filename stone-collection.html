@@ -251,12 +251,6 @@
         const newScale = currentScale * 1.5; // 放大1.5倍
         stoneImage.style.transform = `scale(${newScale})`;
     }
-        } else {
-        const currentTransform = stoneImage.style.transform;
-        const currentScale = parseFloat(currentTransform.match(/[\d\.]+/)[0]);
-        const newScale = currentScale * 2.0; // 放大1.5倍
-        stoneImage.style.transform = `scale(${newScale})`;
-    }
 });
         stoneImage.addEventListener("mousemove", (e) => {
             if (isImageZoomed) {
