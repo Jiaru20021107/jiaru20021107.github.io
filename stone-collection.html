@@ -63,14 +63,13 @@
     <a href="image-overview.html" id="return-to-directory">返回到目录</a>
     <!-- 添加更多导览图片 -->
 
-    <script>
+   <script>
         const stoneImage = document.getElementById("stone-image");
         const returnToDirectory = document.getElementById("return-to-directory");
         const magnifier = document.getElementById("magnifier");
         const magnifierImage = document.getElementById("magnifier-image");
 
         let isImageZoomed = false;
-
         // 获取URL中的参数
         const urlParams = new URLSearchParams(window.location.search);
         const stoneId = urlParams.get("id");
@@ -234,29 +233,29 @@
     case "stone49":
         stoneImage.src = "stone49.png";
         break;
-            // 添加更多石头的情况
-    
-             default:
-                stoneImage.src = "stone.png"; // 当stoneId不匹配时显示默认图片
-        }
 
-      stoneImage.addEventListener("click", () => {
-    if (!isImageZoomed) {
-        stoneImage.style.transform = "scale(2)";
-        isImageZoomed = true;
-        magnifier.style.display = "block";
-    }
-});
+                
+
+
         stoneImage.addEventListener("click", () => {
-    if (isImageZoomed) {
-        stoneImage.style.transform = "scale(2)";
-        magnifier.style.display = "block";
-    } else {
-        stoneImage.style.transform = "scale(1)";
-        magnifier.style.display = "none";
-    }
-    isImageZoomed = !isImageZoomed;
-});
+            if (!isImageZoomed) {
+                stoneImage.style.transform = "scale(2)";
+                isImageZoomed = true;
+                magnifier.style.display = "block";
+            }
+        });
+
+        stoneImage.addEventListener("click", () => {
+            if (isImageZoomed) {
+                // 此处实现二次点击时的更大放大倍数
+                stoneImage.style.transform = "scale(3)";
+                magnifier.style.display = "block";
+            } else {
+                stoneImage.style.transform = "scale(1)";
+                magnifier.style.display = "none";
+            }
+            isImageZoomed = !isImageZoomed;
+        });
 
         stoneImage.addEventListener("mousemove", (e) => {
             if (isImageZoomed) {
@@ -273,16 +272,14 @@
                 magnifierImage.style.top = `-${percentY}%`;
             }
         });
-         returnToDirectory.addEventListener("click", () => {
+
+        returnToDirectory.addEventListener("click", () => {
             if (isImageZoomed) {
                 stoneImage.style.transform = "scale(1)";
                 isImageZoomed = false;
                 magnifier.style.display = "none";
             }
         });
-        
-
-       
     </script>
 </body>
 </html>
