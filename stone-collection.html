@@ -235,10 +235,24 @@
         stoneImage.src = "stone49.png";
         break;
             // 添加更多石头的情况
+    
             default:
                 stoneImage.src = "default.png"; // 当stoneId不匹配时显示默认图片
         }
+let isImageZoomed = false;
+let scaleFactor = 1;
 
+stoneImage.addEventListener("click", () => {
+    if (isImageZoomed) {
+        scaleFactor = 1;
+        isImageZoomed = false;
+        stoneImage.style.transform = "scale(1)";
+    } else {
+        scaleFactor += 0.2; // 调整放大倍数
+        isImageZoomed = true;
+        stoneImage.style.transform = `scale(${scaleFactor})`;
+    }
+});
         stoneImage.addEventListener("click", () => {
             if (isImageZoomed) {
                 stoneImage.style.transform = "scale(1)";
