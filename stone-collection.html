@@ -17,12 +17,11 @@
         }
         .image-container {
             position: relative;
+            text-align: center; /* 居中对齐图片 */
         }
         img {
-            width: auto;
-            max-height: 100vh;
-            display: block;
-            margin: 0 auto;
+            max-width: 100%; /* 确保图片不超出容器宽度 */
+            max-height: 100vh; /* 图片最大高度为视口高度 */
             cursor: pointer;
             transition: transform 0.3s;
         }
