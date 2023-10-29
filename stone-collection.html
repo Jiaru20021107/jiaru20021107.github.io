@@ -240,10 +240,35 @@
         }
 
 <script>
-        const stoneImage = document.getElementById("stone-image");
-        const returnToDirectory = document.getElementById("return-to-directory");
-        const magnifier = document.getElementById("magnifier");
-        const magnifierImage = document.getElementById("magnifier-image");
+       <script>
+        function zoomImage(imagePath) {
+            const image = document.createElement("img");
+            image.src = imagePath;
+            image.style.maxWidth = "100%";
+            image.style.height = "auto";
+            image.style.display = "block";
+            image.style.margin = "0 auto";
+            image.style.cursor = "zoom-out";
+
+            const overlay = document.createElement("div");
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+            overlay.style.display = "flex";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+
+            overlay.appendChild(image);
+            overlay.onclick = function () {
+                overlay.remove();
+            };
+
+            document.body.appendChild(overlay);
+        }
+    </script>
 
         let isImageZoomed = false;
         let scaleFactor = 1; // 初始化放大系数为1
