@@ -246,7 +246,10 @@
         isImageZoomed = true;
         magnifier.style.display = "block";
     } else {
-        stoneImage.style.transform = "scale(3)"; // 放得更大
+        const currentTransform = stoneImage.style.transform;
+        const currentScale = parseFloat(currentTransform.match(/[\d\.]+/)[0]);
+        const newScale = currentScale * 1.5; // 放大1.5倍
+        stoneImage.style.transform = `scale(${newScale})`;
     }
 });
         stoneImage.addEventListener("mousemove", (e) => {
