@@ -441,39 +441,7 @@
     <img src="stone100.png" alt="石头100">
     <p>石头100</p>
 </a>
-<div class="navigation">
-        <button id="page1Button">导览界面 1</button>
-        <button id="page2Button">导览界面 2</button>
-    </div>
-
-    <div class="content">
-        <div class="page1">
-            <h1>导览界面 1</h1>
-            <p>这是导览界面 1 的内容。</p>
-        </div>
-
-        <div class="page2">
-            <h1>导览界面 2</h1>
-            <p>这是导览界面 2 的内容。</p>
-        </div>
-    </div>
-
-    <script>
-        const page1Button = document.getElementById("page1Button");
-        const page2Button = document.getElementById("page2Button");
-        const page1 = document.querySelector(".page1");
-        const page2 = document.querySelector(".page2");
-
-        page1Button.addEventListener("click", () => {
-            page1.style.display = "block";
-            page2.style display = "none";
-        });
-
-        page2Button.addEventListener("click", () => {
-            page1.style.display = "none";
-            page2.style.display = "block";
-        });
-    </script>
+ <a class="right-corner-link" href="page2.html">传送至另一页</a>
 
 </body>
 </html>
