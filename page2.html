@@ -3,243 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>石色</title>
+    <title>颜色排序</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
+        #color-list {
             display: flex;
-            flex-wrap: wrap; /* 使用 flex 布局，并允许换行 */
-            justify-content: center; /* 水平居中对齐 */
+            flex-wrap: wrap;
         }
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            width: 100%; /* 使标题占满整个宽度 */
-        }
-        a {
-            flex: 0 0 calc(20% - 20px); /* 设置每个图片占据 20% 的宽度，减去间距 */
+
+        .color-box {
+            width: 100px;
+            height: 100px;
             margin: 10px;
             text-align: center;
-            text-decoration: none;
-            color: #fff;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        img {
-            max-width: 100%; /* 图片最大宽度为容器宽度 */
-            height: auto;
-            display: block;
-            margin: 0 auto; /* 将图片水平居中 */
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
         }
     </style>
 </head>
- <body> 
- <h1 style="font-size: 28px; letter-spacing: 3mm;">石色</h1>
-     <h1 style="font-size: 18px; letter-spacing: 1mm;">Stone color</h1>
-     <a href="stone-collection.html?id=stone1">
-        <img src="yanse1.png" alt="石头1">
-        <p>7c6053</p>
-    </a>
-    <a href="stone-collection.html?id=stone2">
-        <img src="yanse2.png" alt="石头2">
-        <p>493d37</p>
-    </a>
-     <a href="stone-collection.html?id=stone3">
-    <img src="yanse3.png" alt="石头3">
-    <p>726e61</p>
-</a>
-<a href="stone-collection.html?id=stone4">
-    <img src="yanse4.png" alt="石头4">
-    <p>6e523d</p>
-</a>
-<a href="stone-collection.html?id=stone5">
-    <img src="yanse5.png" alt="石头5">
-    <p>6e583f</p>
-</a>
-<a href="stone-collection.html?id=stone6">
-    <img src="yanse6.png" alt="石头6">
-    <p>7d8070</p>
-</a>
-<a href="stone-collection.html?id=stone7">
-    <img src="yanse7.png" alt="石头7">
-    <p>8c8570</p>
-</a>
-<a href="stone-collection.html?id=stone8">
-    <img src="yanse8.png" alt="石头8">
-    <p>705c49</p>
-</a>
-<a href="stone-collection.html?id=stone9">
-    <img src="yanse9.png" alt="石头9">
-    <p>806e5c</p>
-</a>
-<a href="stone-collection.html?id=stone10">
-    <img src="yanse10.png" alt="石头10">
-    <p>666664</p>
-</a>
-     <a href="stone-collection.html?id=stone11">
-    <img src="yanse11.png" alt="石头11">
-    <p>石头11</p>
-</a>
-<a href="stone-collection.html?id=stone12">
-    <img src="yanse12.png" alt="石头12">
-    <p>石头12</p>
-</a>
-<a href="stone-collection.html?id=stone13">
-    <img src="yanse13.png" alt="石头13">
-    <p>石头13</p>
-</a>
-<a href="stone-collection.html?id=stone14">
-    <img src="yanse14.png" alt="石头14">
-    <p>石头14</p>
-</a>
-<a href="stone-collection.html?id=stone15">
-    <img src="yanse15.png" alt="石头15">
-    <p>石头15</p>
-</a>
-<a href="stone-collection.html?id=stone16">
-    <img src="yanse16.png" alt="石头16">
-    <p>石头16</p>
-</a>
-<a href="stone-collection.html?id=stone17">
-    <img src="yanse17.png" alt="石头17">
-    <p>石头17</p>
-</a>
-<a href="stone-collection.html?id=stone18">
-    <img src="yanse18.png" alt="石头18">
-    <p>石头18</p>
-</a>
-<a href="stone-collection.html?id=stone19">
-    <img src="yanse19.png" alt="石头19">
-    <p>石头19</p>
-</a>
-<a href="stone-collection.html?id=stone20">
-    <img src="yanse20.png" alt="石头20">
-    <p>石头20</p>
-</a>
-<a href="stone-collection.html?id=stone21">
-    <img src="yanse21.png" alt="石头21">
-    <p>石头21</p>
-</a>
-<a href="stone-collection.html?id=stone22">
-    <img src="yanse22.png" alt="石头22">
-    <p>石头22</p>
-</a>
-<a href="stone-collection.html?id=stone23">
-    <img src="yanse23.png" alt="石头23">
-    <p>石头23</p>
-</a>
-<a href="stone-collection.html?id=stone24">
-    <img src="yanse24.png" alt="石头24">
-    <p>石头24</p>
-</a>
-<a href="stone-collection.html?id=stone25">
-    <img src="yanse25.png" alt="石头25">
-    <p>石头25</p>
-</a>
-<a href="stone-collection.html?id=stone26">
-    <img src="yanse26.png" alt="石头26">
-    <p>石头26</p>
-</a>
-<a href="stone-collection.html?id=stone27">
-    <img src="yanse27.png" alt="石头27">
-    <p>石头27</p>
-</a>
-<a href="stone-collection.html?id=stone28">
-    <img src="yanse28.png" alt="石头28">
-    <p>石头28</p>
-</a>
-<a href="stone-collection.html?id=stone29">
-    <img src="yanse29.png" alt="石头29">
-    <p>石头29</p>
-</a>
-<a href="stone-collection.html?id=stone30">
-    <img src="yanse30.png" alt="石头30">
-    <p>石头30</p>
-</a>
-<a href="stone-collection.html?id=stone31">
-    <img src="yanse31.png" alt="石头31">
-    <p>石头31</p>
-</a>
-<a href="stone-collection.html?id=stone32">
-    <img src="yanse32.png" alt="石头32">
-    <p>石头32</p>
-</a>
-<a href="stone-collection.html?id=stone33">
-    <img src="yanse33.png" alt="石头33">
-    <p>石头33</p>
-</a>
-<a href="stone-collection.html?id=stone34">
-    <img src="yanse34.png" alt="石头34">
-    <p>石头34</p>
-</a>
-<a href="stone-collection.html?id=stone35">
-    <img src="yanse35.png" alt="石头35">
-    <p>石头35</p>
-</a>
-<a href="stone-collection.html?id=stone36">
-    <img src="yanse36.png" alt="石头36">
-    <p>石头36</p>
-</a>
-<a href="stone-collection.html?id=stone37">
-    <img src="yanse37.png" alt="石头37">
-    <p>石头37</p>
-</a>
-<a href="stone-collection.html?id=stone38">
-    <img src="yanse38.png" alt="石头38">
-    <p>石头38</p>
-</a>
-<a href="stone-collection.html?id=stone39">
-    <img src="yanse39.png" alt="石头39">
-    <p>石头39</p>
-</a>
-<a href="stone-collection.html?id=stone40">
-    <img src="yanse40.png" alt="石头40">
-    <p>石头40</p>
-</a>
-<a href="stone-collection.html?id=stone41">
-    <img src="yanse41.png" alt="石头41">
-    <p>石头41</p>
-</a>
-<a href="stone-collection.html?id=stone42">
-    <img src="yanse42.png" alt="石头42">
-    <p>石头42</p>
-</a>
-<a href="stone-collection.html?id=stone43">
-    <img src="yanse43.png" alt="石头43">
-    <p>石头43</p>
-</a>
-<a href="stone-collection.html?id=stone44">
-    <img src="yanse44.png" alt="石头44">
-    <p>石头44</p>
-</a>
-<a href="stone-collection.html?id=stone45">
-    <img src="yanse45.png" alt="石头45">
-    <p>石头45</p>
-</a>
-<a href="stone-collection.html?id=stone46">
-    <img src="yanse46.png" alt="石头46">
-    <p>石头46</p>
-</a>
-<a href="stone-collection.html?id=stone47">
-    <img src="yanse47.png" alt="石头47">
-    <p>石头47</p>
-</a>
-<a href="stone-collection.html?id=stone48">
-    <img src="yanse48.png" alt="石头48">
-    <p>石头48</p>
-</a>
-<a href="stone-collection.html?id=stone49">
-    <img src="yanse49.png" alt="石头49">
-    <p>石头49</p>
-</a>
-<a href="stone-collection.html?id=stone50">
-    <img src="yanse50.png" alt="石头50">
-    <p>石头50</p>
-</a>
+<body>
+    <h1>颜色排序</h1>
+    <div id="color-list">
+        <!-- 在这里动态生成颜色块 -->
+    </div>
 
-<a class="right-corner-link" href="image-overview.html">传送至另一页</a>
+    <script>
+        const colors = [
+            { id: "stone1", color: "685a4d" },
+            { id: "stone2", color: "493d37" },
+            { id: "stone3", color: "726e61" },
+            // 在这里添加更多颜色
+            { id: "stone49", color: "555649" },
+            { id: "stone50", color: "8e7e53" }
+        ];
+
+        // 使用颜色明度进行排序
+        colors.sort((a, b) => {
+            const getBrightness = (color) => {
+                const r = parseInt(color.substr(0, 2), 16);
+                const g = parseInt(color.substr(2, 2), 16);
+                const b = parseInt(color.substr(4, 2), 16);
+                return 0.299 * r + 0.587 * g + 0.114 * b;
+            };
+
+            return getBrightness(a.color) - getBrightness(b.color);
+        });
+
+        const colorList = document.getElementById("color-list");
+
+        // 动态生成颜色块
+        colors.forEach((color, index) => {
+            const colorBox = document.createElement("a");
+            colorBox.classList.add("color-box");
+            colorBox.style.backgroundColor = `#${color.color}`;
+            colorBox.href = `stone-collection.html?id=${color.id}`;
+            
+            const colorText = document.createElement("p");
+            colorText.textContent = `${index + 1} ${color.color}`;
+
+            colorBox.appendChild(colorText);
+            colorList.appendChild(colorBox);
+        });
+    </script>
+</body>
+</html>
