@@ -135,14 +135,9 @@
         for (let i = 0; i < colors.length; i++) {
             const colorBlock = document.createElement("div");
             colorBlock.className = "color-block";
-            colorBlock.style.backgroundColor = colors[i].color;
-            colorBlock.addEventListener("click", () => {
-                // 根据颜色对应到石头收集录的石头页面
-                const stoneCollectionURL = `stone-collection.html?id=${colors[i].id}`;
-                window.location.href = stoneCollectionURL;
-            });
+            colorBlock.style.backgroundColor = colors[i];
             document.body.appendChild(colorBlock);
-        }
+
     </script>
 </body>
 </html>
