@@ -5,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>颜色排序</title>
     <style>
-        #color-list {
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* 使用 flex 布局，并允许换行 */
+            justify-content: center; /* 水平居中对齐 */
         }
-
-        .color-box {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
+        h1 {
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
+            font-size: 24px;
+            width: 100%; /* 使标题占满整个宽度 */
         }
+      a {
+    flex: 0 0 calc(20% - 20px);
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000; /* 设置为黑色背景 */
+    padding: 10px;
+    border-radius: 5px;
     </style>
 </head>
 <body>
