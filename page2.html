@@ -14,11 +14,20 @@
             flex-wrap: wrap; /* 使用 flex 布局，并允许换行 */
             justify-content: center; /* 水平居中对齐 */
         }
-        .color-block {
-            width: 50px; /* 设置每个色块的宽度 */
-            height: 50px; /* 设置每个色块的高度 */
-            margin: 5px; /* 设置色块之间的间距 */
-       
+         #color-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
     </style>
     <h1 style="font-size: 28px; letter-spacing: 3mm;">石色</h1>
      <h1 style="font-size: 18px; letter-spacing: 1mm;">collect color</h1>
