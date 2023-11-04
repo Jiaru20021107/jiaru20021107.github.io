@@ -55,68 +55,31 @@
         <!-- 在这里动态生成颜色块 -->
     </div>
 
-    <script>
+ <script>
+        // 颜色数据
         const colors = [
-            { id: "7c6053", color: "7c6053" },
-            { id: "stone2", color: "493d37" },
-            { id: "stone3", color: "726e61" },
-{ id: "6e523d", color: "6e523d" },
-            { id: "6e583f", color: "6e583f" },
-            { id: "7d8070", color: "7d8070" },
-             { id: "8c8570", color: "8c8570" },
-             { id: "705c49", color: "705c49" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-             { id: "7d8070", color: "7d8070" },
-            
-            
-            // 在这里添加更多颜色
-            { id: "stone49", color: "555649" },
-            { id: "stone50", color: "8e7e53" }
+          “#93644f”
+，“#847754”
+，“#4d4c45”
+#5a4f40
+#6c6b5b
+#716f5f
+#8e866d
+#675e4d
+#63503e
+#675d51
+#8a8b7c
+#96968b
+#524936
+#7a6d4b
+#928e79
+#806536
+#5e594d
+#7a7669
+#888168
+#6b6c5d
+
+            // 添加更多颜色
         ];
 
         // 按颜色明度值排序
@@ -135,7 +98,14 @@
             const colorBlock = document.createElement("div");
             colorBlock.className = "color-block";
             colorBlock.style.backgroundColor = colors[i];
+            colorBlock.addEventListener("click", () => {
+                // 根据颜色对应到石头收集录的石头页面
+                const stoneId = "stone" + (i + 1);
+                const stoneCollectionURL = `stone-collection.html?id=${stoneId}`;
+                window.location.href = stoneCollectionURL;
+            });
             document.body.appendChild(colorBlock);
+        }
     </script>
 </body>
 </html>
