@@ -6,14 +6,16 @@
     <title>颜色排序</title>
      <a class="right-corner-link" href="page2.html">传送至另一页</a>
     <style>
-        font-family: 'Arial', sans-serif;
-            background-color: #000; /* 设置背景颜色 */
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap; /* 使用 flex 布局，并允许换行 */
-            justify-content: center; /* 水平居中对齐 */
-        }
+       a {
+    flex: 0 0 calc(20% - 20px);
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000; /* 设置为黑色背景 */
+    padding: 10px;
+    border-radius: 5px;
+}
          #color-list {
             display: flex;
             flex-wrap: wrap;
